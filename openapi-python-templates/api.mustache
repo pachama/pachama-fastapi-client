@@ -29,14 +29,14 @@ class _{{classname}}:
         path_params = {
 {{#pathParams}}
 {{#required}}
-            "{{baseName}}": str({{paramName}}){{#hasMore}},{{/hasMore}}
+            "{{baseName}}": "{}".format({{paramName}}){{#hasMore}},{{/hasMore}}
 {{/required}}
 {{/pathParams}}
         }
 {{#pathParams}}
 {{^required}}
         if {{paramName}} is not None:
-            path_params["{{baseName}}"] = str({{paramName}})
+            path_params["{{baseName}}"] = "{}".format({{paramName}})
 {{/required}}
 {{/pathParams}}
 
@@ -45,14 +45,14 @@ class _{{classname}}:
         query_params = {
 {{#queryParams}}
 {{#required}}
-            "{{baseName}}": str({{paramName}}){{#hasMore}},{{/hasMore}}
+            "{{baseName}}": "{}".format({{paramName}}){{#hasMore}},{{/hasMore}}
 {{/required}}
 {{/queryParams}}
         }
 {{#queryParams}}
 {{^required}}
         if {{paramName}} is not None:
-            query_params["{{baseName}}"] = {{#isListContainer}}[str({{paramName}}_item) for {{paramName}}_item in {{paramName}}]{{/isListContainer}}{{^isListContainer}}str({{paramName}}){{/isListContainer}}
+            query_params["{{baseName}}"] = {{#isListContainer}}["{}".format({{paramName}}_item) for {{paramName}}_item in {{paramName}}]{{/isListContainer}}{{^isListContainer}}"{}".format({{paramName}}){{/isListContainer}}
 {{/required}}
 {{/queryParams}}
 
@@ -61,14 +61,14 @@ class _{{classname}}:
         headers = {
 {{#headerParams}}
 {{#required}}
-            "{{baseName}}": str({{paramName}})
+            "{{baseName}}": "{}".format({{paramName}})
 {{/required}}
 {{/headerParams}}
         }
 {{#headerParams}}
 {{^required}}
         if {{paramName}} is not None:
-            headers["{{baseName}}"] = str({{paramName}})
+            headers["{{baseName}}"] = "{}".format({{paramName}})
 {{/required}}
 {{/headerParams}}
 
@@ -77,14 +77,14 @@ class _{{classname}}:
         cookies = {
 {{#cookieParams}}
 {{#required}}
-            "{{baseName}}": str({{paramName}})
+            "{{baseName}}": "{}".format({{paramName}})
 {{/required}}
 {{/cookieParams}}
         }
 {{#cookieParams}}
 {{^required}}
         if {{paramName}} is not None:
-            cookies["{{baseName}}"] = str({{paramName}})
+            cookies["{{baseName}}"] = "{}".format({{paramName}})
 {{/required}}
 {{/cookieParams}}
 
