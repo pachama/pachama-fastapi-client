@@ -50,9 +50,9 @@ class AuthState(BaseModel):
 
 
 class AuthMiddleware:
-    def __init__(self, auth_state: AuthState, flow: OAuthFlowPassword) -> None:
+    def __init__(self, auth_state: AuthState, flow: OAuthFlowPassword, **kwargs) -> None:
         self.auth_state = auth_state
-        self.flow_client = PasswordFlowClient(flow)
+        self.flow_client = PasswordFlowClient(flow, **kwargs)
 
     @staticmethod
     def set_access_header(token: str, request: Request, *, replace: bool) -> None:
