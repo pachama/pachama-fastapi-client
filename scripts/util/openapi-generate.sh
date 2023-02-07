@@ -10,7 +10,7 @@ INPUT=""
 WORK_DIR=""
 SOURCE_CODE_ONLY="true"
 
-OPENAPI_IMAGE="openapitools/openapi-generator-cli:v4.1.2"
+OPENAPI_IMAGE="openapitools/openapi-generator-cli:v6.3.0"
 
 usage() {
   exitcode="$1"
