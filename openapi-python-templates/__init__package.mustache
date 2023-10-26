@@ -1,5 +1,8 @@
 import inspect
-from pydantic import BaseModel
+try:
+    from pydantic.v1 import BaseModel
+except ImportError:
+    from pydantic import BaseModel
 
 from @IMPORT_NAME@ import models
 from @IMPORT_NAME@.api_client import ApiClient, AsyncApis, SyncApis  # noqa F401

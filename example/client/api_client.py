@@ -2,7 +2,10 @@ from asyncio import get_event_loop
 from typing import Any, Awaitable, Callable, Dict, Generic, Type, TypeVar, overload
 
 from httpx import AsyncClient, Request, Response
-from pydantic import ValidationError, parse_obj_as
+try:
+    from pydantic.v1 import ValidationError, parse_obj_as
+except ImportError:
+    from pydantic import ValidationError, parse_obj_as
 
 from example.client.api.pet_api import AsyncPetApi, SyncPetApi
 from example.client.api.store_api import AsyncStoreApi, SyncStoreApi

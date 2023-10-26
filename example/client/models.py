@@ -2,7 +2,10 @@ from datetime import datetime
 from typing import Any  # noqa
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+try:
+    from pydantic.v1 import BaseModel, Field
+except ImportError:
+    from pydantic import BaseModel, Field
 from typing_extensions import Literal
 
 
