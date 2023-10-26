@@ -8,7 +8,10 @@ from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 
 from fastapi.openapi.models import OAuthFlowPassword
 from httpx import AsyncClient, Response
-from pydantic import BaseModel, ValidationError
+try:
+    from pydantic.v1 import BaseModel, ValidationError
+except ImportError:
+    from pydantic import BaseModel, ValidationError
 from typing_extensions import Literal
 
 from example.client.exceptions import UnexpectedResponse

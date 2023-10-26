@@ -5,7 +5,10 @@ Pydantic data models for the server.
 
 from typing import List, Optional
 
-from pydantic import BaseModel
+try:
+    from pydantic.v1 import BaseModel
+except:
+    from pydantic import BaseModel
 
 
 class FormPostResponse(BaseModel):
